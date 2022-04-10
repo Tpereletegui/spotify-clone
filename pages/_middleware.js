@@ -16,6 +16,6 @@ export async function middleware(req){
   //redirect login if they dont have a token
 
   if(!token && pathname !== '/login') {
-    return NextResponse.redirect(`${process.env.VERCEL_URL}/login`);
+    return NextResponse.redirect(`${process.env.NEXTAUTH_URL}/login`);
   }
 }
