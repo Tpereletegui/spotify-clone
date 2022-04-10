@@ -10,12 +10,12 @@ export async function middleware(req){
   // allow the request if the following it's true
   // if token exist 
   if(pathname.includes('/api/auth') || token){
-      return NextResponse.next();
+      return NextResponse.redirect(process.env.VERCEL_URL);
   }
 
   //redirect login if they dont have a token
 
   if(!token && pathname !== '/login') {
-    return NextResponse.redirect(`${process.env.NEXTAUTH_URL}/login`);
+    return NextResponse.redirect(`${process.env.VERCEL_URL}/login`);
   }
 }
